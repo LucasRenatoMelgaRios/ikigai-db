@@ -1,4 +1,4 @@
-require('dotenv').config(); // Asegúrate de que este módulo esté al principio
+require('dotenv').config();
 const express = require('express');
 const mysql = require('mysql2');
 const bodyParser = require('body-parser');
@@ -12,10 +12,10 @@ app.use(bodyParser.json());
 
 // Conectar a la base de datos MySQL
 const db = mysql.createConnection({
-    host: process.env.DB_HOST || 'localhost', // Lee desde variables de entorno
-    user: process.env.DB_USER || 'root', // Lee desde variables de entorno
-    password: process.env.DB_PASSWORD || '', // Lee desde variables de entorno
-    database: process.env.DB_NAME || 'manga_db' // Lee desde variables de entorno
+    host: process.env.DB_HOST,    // Uso de variables de entorno
+    user: process.env.DB_USER,    // Uso de variables de entorno
+    password: process.env.DB_PASSWORD,  // Uso de variables de entorno
+    database: process.env.DB_NAME  // Uso de variables de entorno
 });
 
 db.connect((err) => {
